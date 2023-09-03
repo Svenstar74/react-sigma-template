@@ -135,6 +135,12 @@ export default DisplayGraph;
   <summary><b>Prevent Double Click Stage</b></summary>
   
   **Branch:** `feature/prevent-double-click-stage`  
-  **Description:** By default, the Sigma Graph zooms in when you double click on the stage. This feature prevents that, because sometimes I find it annoying.
+  **Description:** The Sigma Graph typically zooms in when you double-click on the stage by default. However, this feature helps prevent that behavior, which can sometimes be bothersome.
 </details>
 
+<details>
+  <summary><b>Drag And Drop Node</b></summary>
+  
+  **Branch:** `feature/drag-and-drop`  
+  **Description:** While a static graph may serve your needs on occasion, there are times when you'll want the flexibility to reposition nodes. With this feature, you can easily drag and drop nodes as needed.
+</details>
