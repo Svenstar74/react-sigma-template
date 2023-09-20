@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as PreventDoubleClickStageStories from './PreventDoubleClickStage.stories';
+
+<Meta of={PreventDoubleClickStageStories} />
+
+# PreventDoubleClickStage
+You might say that this is not really a feature, but it is a good starting
+point to understand how Sigma.js and React Sigma work.
+Also, I usually find it annoying because I accidentally make a double click
+and it zooms in. Therefore I usually disable this default behavior.
+
+Below are the two previews. Make a double click in both previews to see the difference.
+
+## Preview With Feature
+<Canvas of={PreventDoubleClickStageStories.WithFeature} />
+
+## Preview Without Feature
+<Canvas of={PreventDoubleClickStageStories.WithoutFeature} />
+
+## Implementation
+Create a new file eg. `src/Graph/Features/PreventDoubleClickStage/GraphEvents.tsx` and add the code below.
+Then make sure to add it in your SigmaContainer (DisplayGraph.tsx).
+
+We make use of the `doubleClickNode` and `doubleClickStage` events to prevent their default behavior (which is zooming in).
+
+```tsx
+import { useEffect } from 'react';
+import { useRegisterEvents, useSigma } from '@react-sigma/core';
+
+function GraphEvents() {
+  const sigma = useSigma();
+  const registerEvents = useRegisterEvents();
+
+  useEffect(() => {
+    registerEvents({
+      doubleClickNode(e) {
+        e.preventSigmaDefault();
+      },
+      doubleClickStage(e) {
+        e.preventSigmaDefault();
+      },
+    });
+  }, [sigma, registerEvents]);
+
+  return null;
+}
+
+export default GraphEvents;
+
+```
+
+```tsx
+import { SigmaContainer } from '@react-sigma/core';
+import PreventDoubleClickStage from './Features/PreventDoubleClickStage/GraphEvents';
+
+...
+
+<SigmaContainer>
+  ...
+
+  <PreventDoubleClickStage />
+</SigmaContainer>
+
+...
+```
