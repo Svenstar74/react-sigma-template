@@ -16,7 +16,7 @@ Below are the two previews. Try dragging a node in both previews to see the diff
 <Canvas of={DragAndDropStories.WithoutFeature} />
 
 ## Implementation
-Create a new file eg. `src/Graph/Features/DragAndDrop/GraphEvents.tsx` and add the code below. Then make sure to add it in your SigmaContainer (DisplayGraph.tsx).
+Create a new file eg. `src/Graph/features/DragAndDrop/GraphEvents.tsx` and add the code below. Then make sure to add it in your SigmaContainer (DisplayGraph.tsx).
 
 Clicking on a node (`downNode`) starts the dragging, while releasing the mouse button (`mouseup`) stops the dragging.
 While we are moving the node (`mousemove`) we update the position, while making sure the camera remains still.
@@ -66,7 +66,7 @@ export default GraphEvents;
 
 ```tsx
 import { SigmaContainer } from '@react-sigma/core';
-import DragAndDrop from './Features/DragAndDrop/GraphEvents';
+import DragAndDrop from './features/DragAndDrop/GraphEvents';
 
 ...
 

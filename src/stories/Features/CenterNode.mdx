@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CenterNodeStories from './CenterNode.stories';
+
+<Meta of={CenterNodeStories} />
+
+# CenterNode
+If you have a large network graph, users might get lost and don't know where a node is.
+You may implement a search field or some button to center a node and give it this functionality to make it easier for the user.
+It is very easy to implement this with React Sigma.
+
+Below are the two previews. Click on a node to see the difference.
+
+## Preview With Feature
+<Canvas of={CenterNodeStories.WithFeature} />
+
+## Preview Without Feature
+<Canvas of={CenterNodeStories.WithoutFeature} />
+
+## Implementation
+Create a new file eg. `src/Graph/features/CenterNode/GraphEvents.tsx` and add the code below. Then make sure to add it in your SigmaContainer (DisplayGraph.tsx).
+
+With the implementation below, you can click on a node and it will center it.
+You can also add a button or a search field that triggers the same function.
+
+```tsx
+import { useEffect } from 'react';
+import { useCamera, useRegisterEvents, useSigma } from '@react-sigma/core';
+
+function GraphEvents() {
+  const sigma = useSigma();
+  const { goto } = useCamera();
+
+  const registerEvents = useRegisterEvents();
+
+  useEffect(() => {
+    registerEvents({
+      downNode(e) {
+        sigma.getGraph().setNodeAttribute(e.node, 'highlighted', true);
+
+        const nodeDisplayData = sigma.getNodeDisplayData(e.node);
+        goto({ ...nodeDisplayData, ratio: 0.5 }, { duration: 1000 });
+      },
+    });
+  }, [sigma, registerEvents]);
+
+  return null;
+}
+
+export default GraphEvents;
+```
+
+```tsx
+import { SigmaContainer } from '@react-sigma/core';
+import CenterNode from './features/CenterNode/GraphEvents';
+
+...
+
+<SigmaContainer>
+  ...
+
+  <CenterNode />
+</SigmaContainer>
+
+...
+```

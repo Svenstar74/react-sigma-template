@@ -3,8 +3,9 @@ import { SigmaContainer } from '@react-sigma/core';
 
 import LoadGraph from './LoadGraph';
 
-import PreventDoubleClickStage from './Features/PreventDoubleClickStage/GraphEvents';
-import DragAndDrop from './Features/DragAndDrop/GraphEvents';
+import PreventDoubleClickStage from './features/PreventDoubleClickStage/GraphEvents';
+import DragAndDrop from './features/DragAndDrop/GraphEvents';
+import CenterNode from './features/CenterNode/GraphEvents';
 
 function DisplayGraph() {
   return (
@@ -15,6 +16,7 @@ function DisplayGraph() {
 
       <PreventDoubleClickStage />
       <DragAndDrop />
+      <CenterNode />
     </SigmaContainer>
   );
 }

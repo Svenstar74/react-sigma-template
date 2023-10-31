@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import TestSigmaContainer from '../TestSigmaContainer';
-import PreventDoubleClickStage from '../../Graph/Features/PreventDoubleClickStage/GraphEvents';
+import PreventDoubleClickStage from '../../Graph/features/PreventDoubleClickStage/GraphEvents';
 
 const meta: Meta<typeof PreventDoubleClickStage> = {
   title: 'Basics/PreventDoubleClickStage',

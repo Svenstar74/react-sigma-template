@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 import TestSigmaContainer from '../TestSigmaContainer';
-import DragAndDrop from '../../Graph/features/DragAndDrop/GraphEvents';
+import CenterNode from '../../Graph/features/CenterNode/GraphEvents';
 
-const meta: Meta<typeof DragAndDrop> = {
-  title: 'Basics/DragAndDrop',
-  component: DragAndDrop,
+const meta: Meta<typeof CenterNode> = {
+  title: 'Basics/CenterNode',
+  component: CenterNode,
   parameters: {
     layout: 'fullscreen',
     docs: {

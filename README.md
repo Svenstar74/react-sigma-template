@@ -105,7 +105,7 @@ export default LoadGraph;
 
 There are several features available to expand the base template. A feature consists of a folder and is implemented in the *DisplayGraph* component.
 
-As an example, the *PreventDoubleClickStage* feature has a folder *src/Graph/Features/PreventDoubleClickStage*. If you add this folder to your project (customize it if necessary) and add the component to the *DisplayGraph.tsx* file like below, you're all setup to use the feature.
+As an example, the *PreventDoubleClickStage* feature has a folder *src/Graph/features/PreventDoubleClickStage*. If you add this folder to your project (customize it if necessary) and add the component to the *DisplayGraph.tsx* file like below, you're all setup to use the feature.
 ```TypeScript
 import '@react-sigma/core/lib/react-sigma.min.css';
 import { SigmaContainer } from '@react-sigma/core';
@@ -113,7 +113,7 @@ import { SigmaContainer } from '@react-sigma/core';
 import LoadGraph from './LoadGraph';
 
 {/* Import the feature */}
-import PreventDoubleClickStage from './Features/PreventDoubleClickStage/GraphEvents';
+import PreventDoubleClickStage from './features/PreventDoubleClickStage/GraphEvents';
 
 function DisplayGraph() {
   return (
@@ -147,4 +147,12 @@ You can try out all features in a live demo by running `npm run storybook`.
   <summary><b>Drag And Drop Node</b></summary>
 
   **Description:** While a static graph may serve your needs on occasion, there are times when you'll want the flexibility to reposition nodes. With this feature, you can easily drag and drop nodes as needed.
+</details>
+
+<details>
+  <summary><b>Center Node</b></summary>
+
+  **Description:** This feature shows how you can center on a node. You
+  can implement this with a search field or a button to help users find
+  a node if your graph becomes too large.
 </details>
